@@ -467,7 +467,7 @@ init();
 </html>
 HTMLEOF
 echo "  [+] Writing start script ..."
-cat << 'STARTEOF' > "$BIN_PATH"
+cat << 'STARTOFEOF' > "$BIN_PATH"
 #!/bin/bash
 INSTALL_DIR="/opt/vps-file-manager"
 if [ ! -d "$INSTALL_DIR" ]; then
