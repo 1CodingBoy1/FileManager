@@ -1,0 +1,17 @@
+#!/bin/bash
+INSTALL_DIR="/opt/vps-file-manager"
+
+if [ ! -d "$INSTALL_DIR" ]; then
+    echo "  [!] VPS File Manager not found at $INSTALL_DIR"
+    echo "  Please run install.sh first."
+    exit 1
+fi
+
+if ! command -v python3 &> /dev/null; then
+    echo "  [!] Python3 is required but not installed."
+    echo "  Install it with:  apt install python3  (or yum/apk equivalent)"
+    exit 1
+fi
+
+cd "$INSTALL_DIR"
+exec python3 server.py "${1:-8080}" "${2:-0.0.0.0}"
